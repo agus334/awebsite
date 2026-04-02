@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMP Negeri 2 Takengon - Kabupaten Aceh Tengah</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hijau: #1a5c3a;
+    --hijau-muda: #2d8653;
+    --hijau-terang: #3daa6c;
+    --emas: #c8992b;
+    --emas-muda: #f0c040;
+    --putih: #ffffff;
+    --abu-terang: #f4f6f2;
+    --abu: #e8ece4;
+    --teks-gelap: #1a2a1e;
+    --teks-abu: #4a5e52;
+    --shadow: 0 4px 24px rgba(26,92,58,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--putih);
+    color: var(--teks-gelap);
+    overflow-x: hidden;
+  }
+
+  /* ===== TOP BAR ===== */
+  .topbar {
+    background: var(--hijau);
+    color: rgba(255,255,255,0.85);
+    font-size: 0.78rem;
+    padding: 6px 0;
+    border-bottom: 2px solid var(--emas);
+  }
+  .topbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .topbar span { display: flex; align-items: center; gap: 6px; }
+  .topbar a { color: var(--emas-muda); text-decoration: none; }
+  .topbar a:hover { text-decoration: underline; }
+
+  /* ===== HEADER ===== */
+  header {
+    background: linear-gradient(135deg, #0d3d24 0%, #1a5c3a 60%, #236e48 100%);
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: rgba(200,153,43,0.08);
+    pointer-events: none;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 30%;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    pointer-events: none;
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .logo-circle {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: var(--putih);
+    border: 3px solid var(--emas);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 6px rgba(200,153,43,0.18);
+    overflow: hidden;
+    font-size: 2.2rem;
+  }
+  .header-text { flex: 1; }
+  .header-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--putih);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+  }
+  .header-text h1 span { color: var(--emas-muda); }
+  .header-text .sub {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.72);
+    margin-top: 6px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .akreditasi-badge {
+    background: var(--emas);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 4px 14px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(200,153,43,0.35);
+  }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    background: var(--putih);
+    border-bottom: 3px solid var(--hijau);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(26,92,58,0.08);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .nav-inner a {
+    text-decoration: none;
+    color: var(--teks-gelap);
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 16px 18px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+    display: block;
+  }
+  .nav-inner a:hover, .nav-inner a.active {
+    color: var(--hijau);
+    border-bottom-color: var(--emas);
+  }
+
+  /* ===== HERO / BANNER ===== */
+  .hero {
+    background: linear-gradient(120deg, #0a2e18 0%, #1a5c3a 50%, #236e48 100%);
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(200,153,43,0.07) 0%, transparent 60%),
+      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 50%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.015) 40px,
+        rgba(255,255,255,0.015) 41px
+      );
+  }
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .hero-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    color: var(--putih);
+    line-height: 1.2;
+    margin-bottom: 18px;
+  }
+  .hero-text h2 em {
+    font-style: normal;
+    color: var(--emas-muda);
+  }
+  .hero-text p {
+    color: rgba(255,255,255,0.78);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--emas);
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { background: #b5841f; transform: translateY(-2px); }
+  .btn-outline {
+    border: 2px solid rgba(255,255,255,0.5);
+    color: var(--putih);
+    padding: 11px 26px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--putih); background: rgba(255,255,255,0.08); }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 22px 18px;
+    text-align: center;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s;
+  }
+  .stat-card:hover { background: rgba(255,255,255,0.13); transform: translateY(-3px); }
+  .stat-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--emas-muda);
+    font-weight: 700;
+    line-height: 1;
+  }
+  .stat-card .label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.7);
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== PENGUMUMAN TICKER ===== */
+  .ticker {
+    background: var(--emas);
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .ticker::before {
+    content: '📢 PENGUMUMAN';
+    position: absolute; left: 0; top: 0;
+    background: var(--hijau);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 10px 18px;
+    letter-spacing: 0.06em;
+    z-index: 2;
+    white-space: nowrap;
+  }
+  .ticker-track {
+    display: flex;
+    gap: 0;
+    animation: ticker 28s linear infinite;
+    white-space: nowrap;
+    padding-left: 210px;
+  }
+  .ticker-track span {
+    font-size: 0.85rem;
+    color: #fff;
+    font-weight: 600;
+    padding: 0 40px;
+  }
+  .ticker-track span::after { content: '•'; margin-left: 40px; opacity: 0.6; }
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ===== MAIN CONTENT ===== */
+  .main { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== SECTION HEADINGS ===== */
+  .section { padding: 64px 0; }
+  .section-alt { background: var(--abu-terang); }
+  .section-header { margin-bottom: 40px; }
+  .section-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--hijau);
+    position: relative;
+    padding-bottom: 14px;
+    margin-bottom: 12px;
+  }
+  .section-header h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 54px; height: 3px;
+    background: var(--emas);
+    border-radius: 2px;
+  }
+  .section-header p { color: var(--teks-abu); font-size: 1.02rem; line-height: 1.7; max-width: 600px; }
+
+  /* ===== BERITA ===== */
+  .berita-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .berita-card {
+    background: var(--putih);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+    border: 1px solid var(--abu);
+  }
+  .berita-card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(26,92,58,0.15); }
+  .berita-img {
+    height: 180px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .berita-img.bg1 { background: linear-gradient(135deg, #1a5c3a, #3daa6c); }
+  .berita-img.bg2 { background: linear-gradient(135deg, #c8992b, #f0c040); }
+  .berita-img.bg3 { background: linear-gradient(135deg, #1a3a5c, #3d7aaa); }
+  .berita-body { padding: 20px; }
+  .berita-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--hijau-terang);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .berita-body h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--teks-gelap);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .berita-body p { font-size: 0.88rem; color: var(--teks-abu); line-height: 1.6; }
+  .berita-meta {
+    display: flex; align-items: center; gap: 10px;
+    margin-top: 14px;
+    font-size: 0.78rem;
+    color: #8fa49a;
+  }
+
+  /* ===== PROFIL SEKOLAH ===== */
+  .profil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .profil-info p { color: var(--teks-abu); line-height: 1.8; font-size: 0.98rem; margin-bottom: 16px; }
+  .profil-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .data-item {
+    background: var(--putih);
+    border-radius: 10px;
+    padding: 18px;
+    border-left: 4px solid var(--hijau-terang);
+    box-shadow: var(--shadow);
+  }
+  .data-item .key {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #8fa49a;
+    margin-bottom: 5px;
+  }
+  .data-item .val {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--teks-gelap);
+  }
+
+  /* ===== VISI MISI ===== */
+  .vismis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .vismis-card {
+    background: var(--putih);
+    border-radius: 14px;
+    padding: 32px;
+    box-shadow: var(--shadow);
+    border-top: 5px solid var(--hijau);
+  }
+  .vismis-card.misi { border-top-color: var(--emas); }
+  .vismis-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    color: var(--hijau);
+    margin-bottom: 16px;
+  }
+  .vismis-card.misi h4 { color: var(--emas); }
+  .vismis-card p, .vismis-card li {
+    color: var(--teks-abu);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .vismis-card ul { padding-left: 18px; }
+  .vismis-card li { margin-bottom: 8px; }
+
+  /* ===== FASILITAS ===== */
+  .fasilitas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .fasilitas-item {
+    background: var(--putih);
+    border-radius: 12px;
+    padding: 26px 18px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--abu);
+    transition: all 0.3s;
+  }
+  .fasilitas-item:hover { transform: translateY(-4px); border-color: var(--hijau-terang); }
+  .fasilitas-icon { font-size: 2.4rem; margin-bottom: 12px; display: block; }
+  .fasilitas-item span:last-child {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--teks-gelap);
+  }
+
+  /* ===== EKSKUL ===== */
+  .ekskul-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .ekskul-item {
+    background: var(--putih);
+    border-radius: 10px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--abu);
+    transition: all 0.25s;
+  }
+  .ekskul-item:hover { border-color: var(--hijau-terang); background: var(--abu-terang); }
+  .ekskul-item .ek-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--hijau), var(--hijau-terang));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+  .ekskul-item .ek-name {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--teks-gelap);
+  }
+
+  /* ===== PENGUMUMAN RESMI ===== */
+  .pengumuman-list { display: flex; flex-direction: column; gap: 14px; }
+  .peng-item {
+    background: var(--putih);
+    border-radius: 10px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--emas);
+    transition: all 0.2s;
+  }
+  .peng-item:hover { border-left-color: var(--hijau); }
+  .peng-date {
+    background: var(--hijau);
+    color: #fff;
+    border-radius: 8px;
+    padding: 8px 10px;
+    text-align: center;
+    flex-shrink: 0;
+    min-width: 52px;
+  }
+  .peng-date .day { font-size: 1.4rem; font-weight: 700; line-height: 1; }
+  .peng-date .mon { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .peng-content h5 { font-size: 0.96rem; font-weight: 600; color: var(--teks-gelap); margin-bottom: 4px; }
+  .peng-content p { font-size: 0.82rem; color: var(--teks-abu); line-height: 1.5; }
+
+  /* ===== KONTAK ===== */
+  .kontak-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .kontak-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+  .kontak-icon {
+    width: 46px; height: 46px;
+    border-radius: 10px;
+    background: var(--hijau);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .kontak-item .k-title { font-weight: 600; color: var(--teks-gelap); font-size: 0.9rem; margin-bottom: 3px; }
+  .kontak-item .k-val { color: var(--teks-abu); font-size: 0.88rem; line-height: 1.6; }
+  .map-placeholder {
+    background: var(--abu);
+    border-radius: 14px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 3rem;
+    color: var(--hijau-terang);
+    border: 2px dashed var(--abu);
+  }
+  .map-placeholder span:last-child { font-size: 0.9rem; color: var(--teks-abu); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #0d3d24;
+    color: rgba(255,255,255,0.78);
+    padding: 48px 24px 0;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 36px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--putih);
+    margin-bottom: 12px;
+  }
+  .footer-brand p { font-size: 0.84rem; line-height: 1.7; }
+  .footer-col h5 {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--emas-muda);
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .footer-col a {
+    display: block;
+    font-size: 0.84rem;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--emas-muda); }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-bottom a { color: var(--emas-muda); text-decoration: none; }
+
+  /* ===== WATERMARK ===== */
+  .watermark {
+    text-align: center;
+    padding: 10px 0 14px;
+    background: #0a2e18;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.05em;
+  }
+  .watermark strong { color: rgba(200,153,43,0.45); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: repeat(4, 1fr); }
+    .berita-grid { grid-template-columns: 1fr 1fr; }
+    .profil-grid { grid-template-columns: 1fr; }
+    .vismis-grid { grid-template-columns: 1fr; }
+    .fasilitas-grid { grid-template-columns: repeat(2, 1fr); }
+    .ekskul-list { grid-template-columns: 1fr 1fr; }
+    .kontak-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .header-text h1 { font-size: 1.3rem; }
+    .hero-text h2 { font-size: 1.8rem; }
+    .berita-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .fasilitas-grid { grid-template-columns: repeat(2, 1fr); }
+    .ekskul-list { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>📧 <a href="mailto:smpn2tkn@gmail.com">smpn2tkn@gmail.com</a></span>
+    <span>📞 (0643) 24800 &nbsp;|&nbsp; NPSN: 10102182 &nbsp;|&nbsp; Akreditasi: <strong style="color:var(--emas-muda)">A</strong></span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo-circle">🏫</div>
+    <div class="header-text">
+      <h1>SMP Negeri <span>2</span> Takengon</h1>
+      <div class="sub">Jl. Laut Tawar, Takengon — Kab. Aceh Tengah, Aceh</div>
+      <span class="akreditasi-badge">✓ Akreditasi A</span>
+    </div>
+  </div>
+</header>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-inner">
+    <a href="#beranda" class="active">Beranda</a>
+    <a href="#profil">Profil Sekolah</a>
+    <a href="#vismis">Visi & Misi</a>
+    <a href="#berita">Berita</a>
+    <a href="#fasilitas">Fasilitas</a>
+    <a href="#ekskul">Ekstrakulikuler</a>
+    <a href="#pengumuman">Pengumuman</a>
+    <a href="#kontak">Kontak</a>
+  </div>
+</nav>
+
+<!-- PENGUMUMAN TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Pendaftaran Peserta Didik Baru (PPDB) Tahun Ajaran 2025/2026 segera dibuka</span>
+    <span>Ujian Akhir Sekolah (UAS) Semester Genap dilaksanakan pada bulan Mei 2025</span>
+    <span>Selamat kepada tim SMPN 2 Takengon yang meraih juara di OSN Kabupaten Aceh Tengah</span>
+    <span>Kegiatan Peringatan Hari Pendidikan Nasional 2 Mei 2025 — seluruh siswa wajib hadir</span>
+    <span>Pendaftaran Peserta Didik Baru (PPDB) Tahun Ajaran 2025/2026 segera dibuka</span>
+    <span>Ujian Akhir Sekolah (UAS) Semester Genap dilaksanakan pada bulan Mei 2025</span>
+    <span>Selamat kepada tim SMPN 2 Takengon yang meraih juara di OSN Kabupaten Aceh Tengah</span>
+    <span>Kegiatan Peringatan Hari Pendidikan Nasional 2 Mei 2025 — seluruh siswa wajib hadir</span>
+  </div>
+</div>
+
+<!-- HERO / BANNER -->
+<section class="hero" id="beranda">
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h2>Mencetak Generasi<br><em>Cerdas & Berakhlak</em><br>Mulia</h2>
+      <p>SMP Negeri 2 Takengon berkomitmen menghadirkan pendidikan berkualitas sejak 1960 untuk siswa-siswi terbaik Kabupaten Aceh Tengah dan sekitarnya.</p>
+      <div class="hero-btns">
+        <a href="#profil" class="btn-primary">Profil Sekolah</a>
+        <a href="#kontak" class="btn-outline">Hubungi Kami</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="num">64+</div>
+        <div class="label">Tahun Berdiri</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">465</div>
+        <div class="label">Siswa Aktif</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">51</div>
+        <div class="label">Tenaga Pendidik</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">A</div>
+        <div class="label">Akreditasi BAN-SM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BERITA -->
+<div class="section" id="berita">
+  <div class="main">
+    <div class="section-header">
+      <h3>Berita & Kegiatan</h3>
+      <p>Informasi terbaru seputar kegiatan akademik dan non-akademik di SMPN 2 Takengon.</p>
+    </div>
+    <div class="berita-grid">
+      <div class="berita-card">
+        <div class="berita-img bg1">🏆</div>
+        <div class="berita-body">
+          <span class="berita-tag">Prestasi</span>
+          <h4>Siswa SMPN 2 Takengon Raih Juara OSN Tingkat Kabupaten</h4>
+          <p>Tim Olimpiade Sains SMPN 2 Takengon berhasil meraih juara 1 bidang Matematika dan juara 2 bidang IPA dalam OSN Kabupaten Aceh Tengah 2025.</p>
+          <div class="berita-meta">📅 28 Maret 2025 &nbsp;·&nbsp; 👁 412 views</div>
+        </div>
+      </div>
+      <div class="berita-card">
+        <div class="berita-img bg2">📚</div>
+        <div class="berita-body">
+          <span class="berita-tag">Akademik</span>
+          <h4>Peluncuran Program Literasi Digital Berbasis Kurikulum Merdeka</h4>
+          <p>Sekolah resmi meluncurkan program literasi digital sebagai implementasi Kurikulum Merdeka untuk meningkatkan kompetensi siswa di era teknologi.</p>
+          <div class="berita-meta">📅 15 Maret 2025 &nbsp;·&nbsp; 👁 298 views</div>
+        </div>
+      </div>
+      <div class="berita-card">
+        <div class="berita-img bg3">🎨</div>
+        <div class="berita-body">
+          <span class="berita-tag">Kegiatan</span>
+          <h4>Pameran P5 Projek Penguatan Profil Pelajar Pancasila</h4>
+          <p>Ratusan karya siswa dipamerkan dalam kegiatan Expo P5 bertemakan "Kearifan Lokal Gayo" yang memperkenalkan budaya Aceh Tengah kepada masyarakat.</p>
+          <div class="berita-meta">📅 5 Maret 2025 &nbsp;·&nbsp; 👁 521 views</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFIL SEKOLAH -->
+<div class="section-alt">
+  <div class="section" id="profil">
+    <div class="main">
+      <div class="section-header">
+        <h3>Profil Sekolah</h3>
+        <p>Mengenal lebih dekat SMP Negeri 2 Takengon, sekolah kebanggaan masyarakat Aceh Tengah.</p>
+      </div>
+      <div class="profil-grid">
+        <div class="profil-info">
+          <p>SMP Negeri 2 Takengon merupakan lembaga pendidikan menengah pertama negeri yang berdiri kokoh di Jalan Laut Tawar, Takengon Timur, Kecamatan Laut Tawar, Kabupaten Aceh Tengah. Sekolah ini berdiri sejak tahun 1960 berdasarkan SK Menteri Pendidikan dan Kebudayaan Nomor 187/SK/B/1960.</p>
+          <p>Selama lebih dari enam dekade, SMPN 2 Takengon telah menjadi bagian penting dalam memajukan dunia pendidikan di Provinsi Aceh, menghasilkan generasi muda yang cerdas, berakhlak mulia, dan siap bersaing di tingkat regional maupun nasional.</p>
+          <p>Dengan diraihnya <strong>Akreditasi A</strong> berdasarkan SK BAN-SM Nomor 871/BAP-SM.Aceh/SK/2015, sekolah ini terus berkomitmen untuk meningkatkan mutu pendidikan dan pelayanan kepada seluruh warga sekolah.</p>
+        </div>
+        <div class="profil-data">
+          <div class="data-item">
+            <div class="key">Nama Sekolah</div>
+            <div class="val">SMPN 2 Takengon</div>
+          </div>
+          <div class="data-item">
+            <div class="key">NPSN</div>
+            <div class="val">10102182</div>
+          </div>
+          <div class="data-item">
+            <div class="key">Status</div>
+            <div class="val">Negeri (Pemerintah)</div>
+          </div>
+          <div class="data-item">
+            <div class="key">Akreditasi</div>
+            <div class="val">A (Sangat Baik)</div>
+          </div>
+          <div class="data-item">
+            <div class="key">Berdiri</div>
+            <div class="val">25 Mei 1960</div>
+          </div>
+          <div class="data-item">
+            <div class="key">Kode Pos</div>
+            <div class="val">24511</div>
+          </div>
+          <div class="data-item">
+            <div class="key">Jenjang</div>
+            <div class="val">SMP (Kelas 7–9)</div>
+          </div>
+          <div class="data-item">
+            <div class="key">Hari Belajar</div>
+            <div class="val">6 Hari / Minggu</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VISI MISI -->
+<div class="section" id="vismis">
+  <div class="main">
+    <div class="section-header">
+      <h3>Visi & Misi</h3>
+      <p>Landasan dan arah tujuan pendidikan di SMP Negeri 2 Takengon.</p>
+    </div>
+    <div class="vismis-grid">
+      <div class="vismis-card">
+        <h4>🎯 Visi</h4>
+        <p>"Terwujudnya lulusan yang berprestasi, berkarakter Islami, berwawasan lingkungan, dan mampu bersaing di era global berlandaskan nilai-nilai Pancasila."</p>
+      </div>
+      <div class="vismis-card misi">
+        <h4>📋 Misi</h4>
+        <ul>
+          <li>Meningkatkan kualitas pembelajaran berbasis aktif, inovatif, dan menyenangkan</li>
+          <li>Menumbuhkan karakter islami melalui pembiasaan akhlak mulia sehari-hari</li>
+          <li>Mengembangkan minat dan bakat siswa melalui kegiatan ekstrakulikuler</li>
+          <li>Mewujudkan lingkungan sekolah yang bersih, hijau, dan kondusif untuk belajar</li>
+          <li>Meningkatkan kompetensi tenaga pendidik secara berkelanjutan</li>
+          <li>Membangun kemitraan dengan orang tua, masyarakat, dan pemerintah daerah</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FASILITAS -->
+<div class="section-alt">
+  <div class="section" id="fasilitas">
+    <div class="main">
+      <div class="section-header">
+        <h3>Fasilitas Sekolah</h3>
+        <p>Sarana dan prasarana lengkap untuk mendukung kegiatan belajar mengajar yang optimal.</p>
+      </div>
+      <div class="fasilitas-grid">
+        <div class="fasilitas-item">
+          <span class="fasilitas-icon">🏫</span>
+          <span>Ruang Kelas</span>
+        </div>
+        <div class="fasilitas-item">
+          <span class="fasilitas-icon">🔬</span>
+          <span>Lab. IPA</span>
+        </div>
+        <div class="fasilitas-item">
+          <span class="fasilitas-icon">💻</span>
+          <span>Lab. Komputer</span>
+        </div>
+        <div class="fasilitas-item">
+          <span class="fasilitas-icon">📖</span>
+          <span>Perpustakaan</span>
+        </div>
+        <div class="fasilitas-item">
+          <span class="fasilitas-icon">⚽</span>
+          <span>Lapangan Olahraga</span>
+        </div>
+        <div class="fasilitas-item">
+          <span class="fasilitas-icon">🕌</span>
+          <span>Musholla</span>
+        </div>
+        <div class="fasilitas-item">
+          <span class="fasilitas-icon">🏥</span>
+          <span>UKS</span>
+        </div>
+        <div class="fasilitas-item">
+          <span class="fasilitas-icon">🌐</span>
+          <span>Akses Internet</span>
+        </div>
+        <div class="fasilitas-item">
+          <span class="fasilitas-icon">🎭</span>
+          <span>Aula / Serbaguna</span>
+        </div>
+        <div class="fasilitas-item">
+          <span class="fasilitas-icon">🍽️</span>
+          <span>Kantin Sehat</span>
+        </div>
+        <div class="fasilitas-item">
+          <span class="fasilitas-icon">🚌</span>
+          <span>Area Parkir</span>
+        </div>
+        <div class="fasilitas-item">
+          <span class="fasilitas-icon">🔒</span>
+          <span>Keamanan 24 Jam</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EKSKUL -->
+<div class="section" id="ekskul">
+  <div class="main">
+    <div class="section-header">
+      <h3>Ekstrakulikuler</h3>
+      <p>Berbagai kegiatan pengembangan diri untuk mendukung potensi siswa secara maksimal.</p>
+    </div>
+    <div class="ekskul-list">
+      <div class="ekskul-item">
+        <div class="ek-icon">⚽</div>
+        <div class="ek-name">Sepak Bola</div>
+      </div>
+      <div class="ekskul-item">
+        <div class="ek-icon">🏸</div>
+        <div class="ek-name">Bulu Tangkis</div>
+      </div>
+      <div class="ekskul-item">
+        <div class="ek-icon">🥋</div>
+        <div class="ek-name">Pencak Silat</div>
+      </div>
+      <div class="ekskul-item">
+        <div class="ek-icon">🎵</div>
+        <div class="ek-name">Seni Musik</div>
+      </div>
+      <div class="ekskul-item">
+        <div class="ek-icon">💃</div>
+        <div class="ek-name">Seni Tari Tradisional</div>
+      </div>
+      <div class="ekskul-item">
+        <div class="ek-icon">🎤</div>
+        <div class="ek-name">Pramuka</div>
+      </div>
+      <div class="ekskul-item">
+        <div class="ek-icon">📐</div>
+        <div class="ek-name">Olimpiade Sains (OSN)</div>
+      </div>
+      <div class="ekskul-item">
+        <div class="ek-icon">📰</div>
+        <div class="ek-name">Jurnalistik & Mading</div>
+      </div>
+      <div class="ekskul-item">
+        <div class="ek-icon">🖥️</div>
+        <div class="ek-name">Karya Ilmiah Remaja</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PENGUMUMAN -->
+<div class="section-alt">
+  <div class="section" id="pengumuman">
+    <div class="main">
+      <div class="section-header">
+        <h3>Pengumuman Resmi</h3>
+        <p>Informasi penting dari pihak sekolah untuk siswa, wali murid, dan masyarakat.</p>
+      </div>
+      <div class="pengumuman-list">
+        <div class="peng-item">
+          <div class="peng-date"><div class="day">15</div><div class="mon">Apr 2025</div></div>
+          <div class="peng-content">
+            <h5>Pendaftaran PPDB Tahun Ajaran 2025/2026</h5>
+            <p>Pendaftaran Peserta Didik Baru dibuka mulai 15 April – 30 Juni 2025. Silakan menghubungi Tata Usaha sekolah untuk informasi persyaratan lengkap.</p>
+          </div>
+        </div>
+        <div class="peng-item">
+          <div class="peng-date"><div class="day">10</div><div class="mon">Apr 2025</div></div>
+          <div class="peng-content">
+            <h5>Jadwal Ujian Akhir Sekolah Semester Genap 2024/2025</h5>
+            <p>UAS Semester Genap akan dilaksanakan pada 5–16 Mei 2025. Seluruh siswa kelas 7 dan 8 wajib mempersiapkan diri dengan sebaik-baiknya.</p>
+          </div>
+        </div>
+        <div class="peng-item">
+          <div class="peng-date"><div class="day">01</div><div class="mon">Apr 2025</div></div>
+          <div class="peng-content">
+            <h5>Peringatan Hari Pendidikan Nasional 2 Mei 2025</h5>
+            <p>Seluruh siswa, guru, dan tenaga kependidikan diwajibkan hadir pada upacara Hardiknas tanggal 2 Mei 2025 pukul 07.00 WIB. Seragam lengkap.</p>
+          </div>
+        </div>
+        <div class="peng-item">
+          <div class="peng-date"><div class="day">20</div><div class="mon">Mar 2025</div></div>
+          <div class="peng-content">
+            <h5>Pembayaran SPP Bulan April 2025</h5>
+            <p>Bagi wali murid yang belum melakukan pembayaran SPP bulan April agar segera melunasi sebelum tanggal 20 April 2025 di bagian keuangan sekolah.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KONTAK -->
+<div class="section" id="kontak">
+  <div class="main">
+    <div class="section-header">
+      <h3>Hubungi Kami</h3>
+      <p>Kami siap melayani pertanyaan dan keperluan Anda seputar SMPN 2 Takengon.</p>
+    </div>
+    <div class="kontak-grid">
+      <div>
+        <div class="kontak-item">
+          <div class="kontak-icon">📍</div>
+          <div>
+            <div class="k-title">Alamat</div>
+            <div class="k-val">Jl. Laut Tawar Takengon, Takengon Timur,<br>Kec. Laut Tawar, Kab. Aceh Tengah,<br>Provinsi Aceh — 24511</div>
+          </div>
+        </div>
+        <div class="kontak-item">
+          <div class="kontak-icon">📞</div>
+          <div>
+            <div class="k-title">Telepon</div>
+            <div class="k-val">(0643) 24800</div>
+          </div>
+        </div>
+        <div class="kontak-item">
+          <div class="kontak-icon">📧</div>
+          <div>
+            <div class="k-title">Email</div>
+            <div class="k-val">smpn2tkn@gmail.com</div>
+          </div>
+        </div>
+        <div class="kontak-item">
+          <div class="kontak-icon">🕐</div>
+          <div>
+            <div class="k-title">Jam Operasional</div>
+            <div class="k-val">Senin – Sabtu: 07.00 – 15.00 WIB</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="map-placeholder">
+          🗺️
+          <span>Jl. Laut Tawar Takengon, Aceh Tengah</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h4>SMP Negeri 2 Takengon</h4>
+      <p>Lembaga pendidikan menengah pertama negeri yang berkomitmen mencetak generasi cerdas, berakhlak mulia, dan berdaya saing tinggi di Kabupaten Aceh Tengah, Provinsi Aceh.</p>
+      <br>
+      <p style="font-size:0.78rem; color:rgba(255,255,255,0.4)">NPSN: 10102182 &nbsp;|&nbsp; Akreditasi A</p>
+    </div>
+    <div class="footer-col">
+      <h5>Tautan Cepat</h5>
+      <a href="#beranda">Beranda</a>
+      <a href="#profil">Profil Sekolah</a>
+      <a href="#vismis">Visi & Misi</a>
+      <a href="#berita">Berita</a>
+      <a href="#pengumuman">Pengumuman</a>
+    </div>
+    <div class="footer-col">
+      <h5>Layanan</h5>
+      <a href="#">PPDB Online</a>
+      <a href="#">Data Siswa</a>
+      <a href="#">Jadwal Pelajaran</a>
+      <a href="#">Kalender Akademik</a>
+      <a href="#">Laporan Hasil Belajar</a>
+    </div>
+    <div class="footer-col">
+      <h5>Tautan Resmi</h5>
+      <a href="https://kemdikbud.go.id" target="_blank">Kemdikbudristek</a>
+      <a href="https://disdik.acehtengahkab.go.id" target="_blank">Disdik Aceh Tengah</a>
+      <a href="https://disdik.acehprov.go.id" target="_blank">Disdik Provinsi Aceh</a>
+      <a href="https://npd.kemdikbud.go.id" target="_blank">Data Pokok Pendidikan</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 SMP Negeri 2 Takengon — Hak Cipta Dilindungi</span>
+    <span>Jl. Laut Tawar, Takengon Timur, Kab. Aceh Tengah, Aceh</span>
+  </div>
+</footer>
+
+<!-- WATERMARK -->
+<div class="watermark">
+  Dibuat oleh &nbsp;<strong>Dani</strong>&nbsp; &mdash; &nbsp;<strong>2026</strong>
+</div>
+
+<script>
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('[id]');
+  const navLinks = document.querySelectorAll('.nav-inner a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 80;
+      if (scrollY >= top) current = section.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
